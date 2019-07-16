@@ -1,0 +1,30 @@
+{
+  "name": "Fullstack-Engineer-Challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fox-Coderr/Fullstack-Engineer-Challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fox-Coderr/Fullstack-Engineer-Challenge/issues"
+  },
+  "homepage": "https://github.com/Fox-Coderr/Fullstack-Engineer-Challenge#readme",
+  "dependencies": {
+    "apollo-server": "^2.6.7",
+    "apollo-server-express": "^2.6.7",
+    "express": "^4.17.1",
+    "graphql": "^14.4.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
