@@ -1,5 +1,5 @@
-const item_in_cart = (sequelize, DataTypes) => {
-    const Item_in_cart = sequelize.define('item_in_cart', {
+module.exports = (sequelize, DataTypes) => {
+    const ItemInCart = sequelize.define('itemInCart', {
       name: {
         type: DataTypes.STRING,
         validate: {
@@ -26,11 +26,9 @@ const item_in_cart = (sequelize, DataTypes) => {
       },
     });
 
-    Item_in_cart.associate = models => {
-        Item_in_cart.belongsTo(models.Cart);
+    ItemInCart.associate = models => {
+        ItemInCart.belongsTo(models.Cart);
     };
   
-    return Item_in_cart;
+    return ItemInCart;
   };
-  
-  module.exports = item_in_cart

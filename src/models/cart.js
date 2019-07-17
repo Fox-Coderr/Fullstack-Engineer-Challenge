@@ -1,4 +1,4 @@
-const cart = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes) => {
     const Cart = sequelize.define('cart', {
       sold_at: {
         type: DataTypes.DATE,
@@ -15,5 +15,3 @@ const cart = (sequelize, DataTypes) => {
   
     return Cart;
   };
-  
-  module.exports = cart
