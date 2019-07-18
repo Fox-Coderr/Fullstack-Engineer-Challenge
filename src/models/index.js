@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
 const models = {
     User: sequelize.import('./user'),
     Cart: sequelize.import('./cart'),
-    Item_in_cart: sequelize.import('./item_in_cart'),
+    ItemInCart: sequelize.import('./item_in_cart'),
     Item: sequelize.import('./item'),    
   };
 
