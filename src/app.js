@@ -1,8 +1,8 @@
 require('dotenv').config()
-var express = require('express');
-var http = require('http')
+const express = require('express');
+const http = require('http')
 
-var models = require('./models/index')
+let models = require('./models/index')
 
 const app = express();
 const httpServer = http.createServer(app);

@@ -1,6 +1,6 @@
-var apollo = require('apollo-server-express');
+const { gql } = require('apollo-server-express');
 
-module.exports = apollo.gql`
+module.exports = gql`
   extend type Query {
     items: [Item!]
     item(id: ID!): Item

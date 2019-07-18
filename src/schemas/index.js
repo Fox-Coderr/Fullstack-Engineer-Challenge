@@ -1,10 +1,10 @@
-var apollo = require('apollo-server-express');
-var userSchema = require('./user');
-var itemSchema = require('./item');
-var itemInCartSchema = require('./item_in_cart');
-var cartSchema = require('./cart');
+const { gql } = require('apollo-server-express');
+let userSchema = require('./user');
+let itemSchema = require('./item');
+let itemInCartSchema = require('./item_in_cart');
+let cartSchema = require('./cart');
 
-const linkSchema = apollo.gql`
+const linkSchema = gql`
 
   type Query {
     _: Boolean

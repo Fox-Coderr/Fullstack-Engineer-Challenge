@@ -1,6 +1,6 @@
-var apollo = require('apollo-server-express');
+const { gql } = require('apollo-server-express');
 
-module.exports = apollo.gql`
+module.exports = gql`
   extend type Query {
     carts: [Cart!]
     cart(id: ID!): Cart
@@ -8,7 +8,7 @@ module.exports = apollo.gql`
 
   type Cart {
     id: ID!
-    sold_at: String!  
+    soldAt: String!  
   }
 
 `;

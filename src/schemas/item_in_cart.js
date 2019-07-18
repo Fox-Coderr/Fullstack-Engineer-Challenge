@@ -1,6 +1,6 @@
-var apollo = require('apollo-server-express');
+const { gql } = require('apollo-server-express');
 
-module.exports = apollo.gql`
+module.exports = gql`
   extend type Query {
     itemsInCart: [ItemInCart!]
     itemInCart(id: ID!): ItemInCart
