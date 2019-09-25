@@ -1,7 +1,7 @@
-var ForbiddenError = require('apollo-server');
-var graphqlResolvers = require('graphql-resolvers');
-var skip = graphqlResolvers.skip
-var combineResolvers = graphqlResolvers.combineResolvers
+let ForbiddenError = require('apollo-server');
+let graphqlResolvers = require('graphql-resolvers');
+let skip = graphqlResolvers.skip
+let combineResolvers = graphqlResolvers.combineResolvers
 
 const isAuthenticated = (parent, args, { me }) =>
   me ? skip : new ForbiddenError('Not authenticated as user.');
