@@ -3,6 +3,7 @@ const express = require('express');
 const http = require('http')
 let apollo = require('apollo-server-express')
 let cors = require('cors')
+let jwt = require('jsonwebtoken')
 let ApolloServer = apollo.ApolloServer
 let AuthenticationError = apollo.AuthenticationError
 let DataLoader = require('dataloader')
@@ -16,7 +17,6 @@ const httpServer = http.createServer(app);
 
 const getMe = async req => {
   const token = req.headers['x-token'];
-
   if (token) {
     try {
       return await jwt.verify(token, process.env.SECRET);
