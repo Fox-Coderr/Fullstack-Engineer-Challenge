@@ -92,18 +92,17 @@ models.sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
 const createUsers = async () => {
     await models.models.User.create(
       {
-        username: 'teste1',
-        email: 'teste1@email.com',
+        username: 'user1',
+        email: 'user1@email.com',
         password: '123123123',
       },
     );
   
     await models.models.User.create(
       {
-        username: 'teste2',
-        email: 'teste2@email.com',
+        username: 'user2',
+        email: 'user2@email.com',
         password: '123123123',
       },
     );
   };
-  
