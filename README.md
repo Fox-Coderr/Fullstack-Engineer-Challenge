@@ -46,7 +46,7 @@ After starting go to http://localhost:8100/graphql
 Sign in using any of the created users with this sintax:
 ```
 mutation {
-  signIn(login: "teste1", password: "123123123") {
+  signIn(login: "user1", password: "123123123") {
     token
   }
 }
