@@ -39,6 +39,33 @@ The cart is the connection between a user and the items he bought(a date in sold
 
 Basic information about a user.
 
+How To Use (Current Version)
+=======
+After starting go to http://localhost:8100/graphql
+
+Sign in using any of the created users with this sintax:
+```
+mutation {
+  signIn(login: "teste1", password: "123123123") {
+    token
+  }
+}
+```
+You will receave a token that you can place in the headers seaction like this:
+```
+{
+  "x-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ0ZXN0ZTFAZW1haWwuY29tIiwidXNlcm5hbWUiOiJ0ZXN0ZTEiLCJpYXQiOjE1Njk4ODY5MzMsImV4cCI6MTU2OTg4ODczM30.Qpw-P9oyEgeradduibPbcotPH_HQJY7JbO6UUK8ds5A"
+}
+```
+With the token in place you can query yourself:
+```
+query{
+  me{
+    username
+    id
+  }
+}
+```
 To-Do
 =======
 
