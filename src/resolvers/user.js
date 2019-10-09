@@ -12,7 +12,7 @@ const createToken = async (user, secret, expiresIn) => {
 
 module.exports = {
     Query: {
-      me: async (parent, args, { models, me }) => {
+      me: async (_, __, { models, me }) => {
         if (!me) {
           return null;
         }
