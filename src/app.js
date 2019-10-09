@@ -8,7 +8,7 @@ const DataLoader = require('dataloader')
 
 const schema = require('./schemas/index')
 const resolvers = require('./resolvers/index')
-const models = require('./models/index')
+const {models, sequelize} = require('./models/index')
 
 const app = express();
 const httpServer = http.createServer(app);
@@ -77,7 +77,7 @@ server.applyMiddleware({ app, path: '/graphql' });
 
 const eraseDatabaseOnSync = true;
 
-models.sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
+sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
     if (eraseDatabaseOnSync) {
         createUsers();
     }
@@ -88,7 +88,7 @@ models.sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
 });
 
 const createUsers = async () => {
-    await models.models.User.create(
+    await models.User.create(
       {
         username: 'user1',
         email: 'user1@email.com',
@@ -96,7 +96,7 @@ const createUsers = async () => {
       },
     );
   
-    await models.models.User.create(
+    await models.User.create(
       {
         username: 'user2',
         email: 'user2@email.com',

@@ -16,7 +16,7 @@ module.exports = {
         if (!me) {
           return null;
         }
-        return await models.models.User.findByPk(me.id);
+        return await models.User.findByPk(me.id);
       },
     },
 
@@ -26,7 +26,7 @@ module.exports = {
         { username, email, password },
         { models, secret }
       ) => {
-        const user = await models.models.User.create({
+        const user = await models.User.create({
           username,
           email,
           password,
@@ -40,7 +40,7 @@ module.exports = {
         { login, password },
         { models, secret },
       ) => {
-        const user = await models.models.User.findByLogin(login);
+        const user = await models.User.findByLogin(login);
   
         if (!user) {
           throw new UserInputError(
@@ -60,7 +60,7 @@ module.exports = {
       deleteUser: combineResolvers(
         isAdmin,
         async (parent, { id }, { models }) => {
-          return await models.models.User.destroy({
+          return await models.User.destroy({
             where: { id },
           });
         },
