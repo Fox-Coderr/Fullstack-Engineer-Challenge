@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const Op = require('sequelize').Op;
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
@@ -34,15 +35,10 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   User.findByLogin = async login => {
+    
     let user = await User.findOne({
-      where: { username: login },
+      where: {[Op.or]: [{username: login}, {email: login}]},
     });
-
-    if (!user) {
-      user = await User.findOne({
-        where: { email: login },
-      });
-    }
 
     return user;
   };
