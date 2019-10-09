@@ -77,6 +77,7 @@ server.applyMiddleware({ app, path: '/graphql' });
 
 const eraseDatabaseOnSync = true;
 
+//Erasing the database on start for better test purposes.
 sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
     if (eraseDatabaseOnSync) {
         createUsers();
