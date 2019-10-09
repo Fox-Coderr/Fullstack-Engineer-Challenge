@@ -1,9 +1,7 @@
-let jwt = require('jsonwebtoken');
-let combineResolvers = require('graphql-resolvers').combineResolvers;
-let apollo = require('apollo-server');
-let AuthenticationError = apollo.AuthenticationError;
-let UserInputError = apollo.UserInputError;
-let isAdmin = require('./authorization').isAdmin;
+const jwt = require('jsonwebtoken');
+const combineResolvers = require('graphql-resolvers').combineResolvers;
+const { AuthenticationError, UserInputError } = require('apollo-server');
+const isAdmin = require('./authorization').isAdmin;
 
 const createToken = async (user, secret, expiresIn) => {
   const { id, email, username, role } = user;

@@ -1,16 +1,14 @@
 require('dotenv').config()
 const express = require('express');
 const http = require('http')
-let apollo = require('apollo-server-express')
-let cors = require('cors')
-let jwt = require('jsonwebtoken')
-let ApolloServer = apollo.ApolloServer
-let AuthenticationError = apollo.AuthenticationError
-let DataLoader = require('dataloader')
+const cors = require('cors')
+const jwt = require('jsonwebtoken')
+const { AuthenticationError, ApolloServer } = require('apollo-server-express');
+const DataLoader = require('dataloader')
 
-let schema = require('./schemas/index')
-let resolvers = require('./resolvers/index')
-let models = require('./models/index')
+const schema = require('./schemas/index')
+const resolvers = require('./resolvers/index')
+const models = require('./models/index')
 
 const app = express();
 const httpServer = http.createServer(app);
