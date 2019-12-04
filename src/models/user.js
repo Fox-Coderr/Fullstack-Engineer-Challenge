@@ -1,4 +1,5 @@
 const bcrypt = require('bcrypt');
+const Op = require('sequelize').Op;
 
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
@@ -8,6 +9,15 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notEmpty: true,
+      },
+    },
+    email: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+        isEmail: true,
       },
     },
     password: {
@@ -24,6 +34,15 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Cart, { onDelete: 'CASCADE' });
   };
 
+  User.findByLogin = async login => {
+    
+    let user = await User.findOne({
+      where: {[Op.or]: [{username: login}, {email: login}]},
+    });
+
+    return user;
+  };
+
   User.beforeCreate(async user => {
     user.password = await user.generatePasswordHash();
   });
@@ -31,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.generatePasswordHash = async function() {
     const saltRounds = 10;
     return await bcrypt.hash(this.password, saltRounds);
+  };
+
+  User.prototype.validatePassword = async function(password) {
+    return await bcrypt.compare(password, this.password);
   };
 
   return User;

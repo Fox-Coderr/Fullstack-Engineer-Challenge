@@ -1,8 +1,8 @@
 const { gql } = require('apollo-server-express');
-let userSchema = require('./user');
-let itemSchema = require('./item');
-let itemInCartSchema = require('./item_in_cart');
-let cartSchema = require('./cart');
+const userSchema = require('./user');
+const itemSchema = require('./item');
+const itemInCartSchema = require('./item_in_cart');
+const cartSchema = require('./cart');
 
 const linkSchema = gql`
 
