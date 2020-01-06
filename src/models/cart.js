@@ -1,17 +1,14 @@
 module.exports = (sequelize, DataTypes) => {
+    
     const Cart = sequelize.define('cart', {
-      sold_at: {
+      soldAt: {
         type: DataTypes.DATE,
       },
     });
-
-    Cart.associate = models => {
-        Cart.belongsTo(models.User);
-    };
-
-    Cart.associate = models => {
-        Cart.hasMany(models.Item_in_cart, { onDelete: 'CASCADE' });
-    };
+    const User = sequelize.import('./user')
+    const ItemInCart = sequelize.import('./item_in_cart')
+    Cart.belongsTo(User);
+    Cart.hasMany(ItemInCart, { onDelete: 'CASCADE' , as: 'items'});
   
     return Cart;
   };

@@ -25,10 +25,6 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
     });
-
-    ItemInCart.associate = models => {
-        ItemInCart.belongsTo(models.Cart);
-    };
   
     return ItemInCart;
   };

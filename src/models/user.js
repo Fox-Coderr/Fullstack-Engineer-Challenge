@@ -30,10 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  User.associate = models => {
-    User.hasMany(models.Cart, { onDelete: 'CASCADE' });
-  };
-
   User.findByLogin = async login => {
     
     let user = await User.findOne({
