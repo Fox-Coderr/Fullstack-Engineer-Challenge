@@ -17,7 +17,6 @@ app.use(cors())
 app.get('/images/:file(*)',(req, res) => {
   var file = req.params.file;
   var fileLocation = path.join('./images',file);
-  console.log(fileLocation);
   res.download(fileLocation, file); 
 });
 
@@ -92,7 +91,7 @@ sequelize.sync({ force: eraseDatabaseOnSync }).then(async () => {
         createItems();
     }
   
-    httpServer.listen({ port: 8101 }, () => {
+    httpServer.listen({ port: 8100 }, () => {
         console.log('Apollo Server on http://localhost:8100/graphql');
     });
 });
