@@ -2,13 +2,24 @@ const { gql } = require('apollo-server-express');
 
 module.exports = gql`
   extend type Query {
-    carts: [Cart!]
-    cart(id: ID!): Cart
+    cart: Cart!    
+    carts(
+      soldAt:String!
+    ): [Cart!] 
+  }
+
+  extend type Mutation {
+    addItem(
+      itemId:ID!
+      quantity:Int!
+    ): Boolean!
   }
 
   type Cart {
     id: ID!
-    soldAt: String!  
+    soldAt: String  
+    user: User!
+    items: [ItemInCart!]
   }
 
 `;
