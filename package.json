@@ -20,7 +20,7 @@
   "homepage": "https://github.com/Fox-Coderr/Fullstack-Engineer-Challenge#readme",
   "dependencies": {
     "apollo-server": "2.6.7",
-    "apollo-server-express": "2.6.7",
+    "apollo-server-express": "2.14.2",
     "bcrypt": "3.0.6",
     "dotenv": "8.0.0",
     "express": "4.17.1",
